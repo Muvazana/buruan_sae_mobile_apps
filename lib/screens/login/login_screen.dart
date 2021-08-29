@@ -2,7 +2,6 @@ import 'package:buruan_sae_mobile_apps/screens/gen_components/pg_loading.dart';
 import 'package:buruan_sae_mobile_apps/screens/gen_components/widgets/custom_rounded_button.dart';
 import 'package:buruan_sae_mobile_apps/screens/login/componens/rounded_input_field_v1.dart';
 import 'package:buruan_sae_mobile_apps/utils/const_color.dart';
-import 'package:buruan_sae_mobile_apps/utils/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -42,7 +41,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    SizeConfig().init(context);
+    final _size = MediaQuery.of(context).size;
     return Scaffold(
       body: Center(
         child: Padding(
@@ -54,7 +53,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 Visibility(
                   visible: _isKeyboardVisible(),
                   child: Container(
-                    height: SizeConfig.getHeightSize(20),
+                    height: _size.height * 0.2,
                     child: SvgPicture.asset(
                       "assets/icons/undraw_welcome_cats.svg",
                     ),
@@ -65,7 +64,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   _errMessage!,
                   style: TextStyle(
                     color: errMessage,
-                    fontSize: SizeConfig.getWidthSize(3.5),
+                    fontSize: _size.width * 0.035,
                   ),
                 ),
                 SizedBox(height: 12),
@@ -143,7 +142,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 "Lupa Password?",
                 style: TextStyle(
                   color: kPrimaryColor,
-                  fontSize: SizeConfig.getWidthSize(3.5),
+                  fontSize: _size.width * 0.035,
                   fontWeight: FontWeight.bold,
                 ),
               ),

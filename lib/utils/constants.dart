@@ -14,3 +14,5 @@ class Constants{
   static const BASE_URL = "http://192.168.1.2:8000";
   static const TOKEN = "V0xXeDc3N3pXV3BDaW0zSnhRaHV5eWFTNmowcnRBdm42OG1UUTlQRQ==";
 }
+
+const kPrimaryPadding = 16.0;

@@ -1,6 +1,8 @@
+import 'package:buruan_sae_mobile_apps/screens/dashboard/dashboard.dart';
 import 'package:buruan_sae_mobile_apps/screens/gen_components/pg_loading.dart';
 import 'package:buruan_sae_mobile_apps/screens/login/login_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class RouteGenerator {
   static String routePosition = '';
@@ -15,11 +17,14 @@ class RouteGenerator {
           // CustomProgressDialog.context = context;
           return LoginScreen();
         });
-      // case Dashboard.routeName:
-      //   return MaterialPageRoute(builder: (context) {
-      //     CustomProgressDialog.context = context;
-      //     return Dashboard();
-      //   });
+      case Dashboard.routeName:
+        return MaterialPageRoute(builder: (context) {
+          // CustomProgressDialog.context = context;
+          return ChangeNotifierProvider(
+            create: (_) => MenuProvider(),
+            child: Dashboard(),
+          );
+        });
       // case PenyuluhanMenu.routeName:
       //   return MaterialPageRoute(
       //       builder: (context) => PenyuluhanMenu(

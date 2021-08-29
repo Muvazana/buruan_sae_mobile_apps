@@ -1,6 +1,5 @@
 
 import 'package:buruan_sae_mobile_apps/utils/const_color.dart';
-import 'package:buruan_sae_mobile_apps/utils/size_config.dart';
 import 'package:flutter/material.dart';
 
 class CustomRoundedButton extends StatelessWidget {
@@ -26,7 +25,7 @@ class CustomRoundedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SizeConfig().init(context);
+    final _size = MediaQuery.of(context).size;
     return Container(
       width: this.width,
       child: ElevatedButton(
@@ -37,7 +36,7 @@ class CustomRoundedButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(this.borderRadius),
           ),
           padding: EdgeInsets.symmetric(
-            vertical: SizeConfig.getHeightSize(1.5),
+            vertical: _size.height * 0.015,
           ),
         ),
         onPressed: onPressed as void Function()?,
@@ -57,14 +56,14 @@ class CustomRoundedButton extends StatelessWidget {
                 this.text,
                 style: TextStyle(
                   color: this.color,
-                  fontSize: SizeConfig.getWidthSize(this.fontSize),
+                  fontSize: _size.width * (this.fontSize / 100),
                 ),
               ),
             ),
             Center(
               child: Icon(
                 this.suffixIcon,
-                size: SizeConfig.getWidthSize(this.fontSize) - 4,
+                size: (_size.width * (this.fontSize / 100)) - 4,
                 color: this.color,
               ),
             )

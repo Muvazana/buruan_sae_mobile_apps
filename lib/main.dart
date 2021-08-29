@@ -1,3 +1,4 @@
+import 'package:buruan_sae_mobile_apps/screens/dashboard/dashboard.dart';
 import 'package:buruan_sae_mobile_apps/screens/login/login_screen.dart';
 import 'package:buruan_sae_mobile_apps/utils/const_color.dart';
 import 'package:buruan_sae_mobile_apps/utils/route_generator.dart';
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.portraitUp,
     ]);
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         // primarySwatch: MaterialColor(kPrimaryColor.value, {
@@ -25,7 +27,7 @@ class MyApp extends StatelessWidget {
         primaryColor: kPrimaryColor,
         scaffoldBackgroundColor: Colors.white,
       ),
-      initialRoute: LoginScreen.routeName,
+      initialRoute: Dashboard.routeName,
       onGenerateRoute: RouteGenerator.generateRoute,
     );
   }

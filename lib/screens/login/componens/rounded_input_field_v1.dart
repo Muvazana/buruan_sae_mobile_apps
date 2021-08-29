@@ -1,5 +1,4 @@
 import 'package:buruan_sae_mobile_apps/utils/const_color.dart';
-import 'package:buruan_sae_mobile_apps/utils/size_config.dart';
 import 'package:flutter/material.dart';
 
 class RoundedInputFieldLogin extends StatefulWidget {
@@ -46,7 +45,7 @@ class _RoundedInputFieldLoginState extends State<RoundedInputFieldLogin> {
 
   @override
   Widget build(BuildContext context) {
-    SizeConfig().init(context);
+    final _size = MediaQuery.of(context).size;
     return Theme(
       data: Theme.of(context).copyWith(
         hintColor: Colors.transparent,
@@ -65,7 +64,7 @@ class _RoundedInputFieldLoginState extends State<RoundedInputFieldLogin> {
               ? GestureDetector(
                   child: Icon(
                     Icons.visibility,
-                    size: SizeConfig.getWidthSize(widget.size + 3.5),
+                    size: _size.width * ((widget.size + 3.5) / 100),
                     color: _hidePassword ? Color(0xFFC4C4C4) : kPrimaryColor,
                   ),
                   onTap: () {
@@ -78,14 +77,14 @@ class _RoundedInputFieldLoginState extends State<RoundedInputFieldLogin> {
           focusedBorder: border,
           border: border,
           contentPadding: EdgeInsets.symmetric(
-            vertical: SizeConfig.getWidthSize(widget.size),
-            horizontal: SizeConfig.getWidthSize(widget.size + 0.5),
+            vertical: _size.width * (widget.size / 100),
+            horizontal: _size.width * ((widget.size + 0.5) / 100),
           ),
           filled: true,
           fillColor: widget.enable ? widget.filledColor : Color(0x48C4C4C4),
           labelText: widget.labelText,
           labelStyle: TextStyle(
-            fontSize: SizeConfig.getWidthSize(widget.size + 1.7),
+            fontSize: _size.width * ((widget.size + 1.7) / 100),
             color: widget.labelColor,
           ),
         ),
